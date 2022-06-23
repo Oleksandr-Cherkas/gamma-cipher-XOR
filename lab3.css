@@ -1,0 +1,34 @@
+body {
+    background:url("1.png");
+  }
+.main {
+    background:url("3.jpg") no-repeat center center fixed;
+    background-size: cover;
+    margin: 0px 20%;
+    border: 3px solid black;
+    text-align: center;
+  }
+.text {
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    margin: 0px 10%;
+  }
+.b1 {
+    /* width: 30%; */
+    height: 10%;
+    margin: 1%;
+    border-radius: 10px;
+    background: rgb(52, 52, 221); 
+    border: 1px solid black;
+    color: white; 
+    font-size: 20px; 
+  }
+  @media (max-width: 400px) {
+    .main {
+      margin: 0px 10%;
+    }
+  }
+  @media (max-width: 280px) {
+    .main {
+      margin: 0px 5%;
+    }
+  }
