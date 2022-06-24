@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+  "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="main.css" type="text/css"/>
+    <title>Лаб 3</title>
+    <script language="JavaScript" src="main.js"></script>
+ </head> 
+ <body>
+<div class="main">
+    <div class="row justify-content-around">
+      <div class="col-md-6">
+        <div id="encrypt-block">
+          <h3 class="text">Вітаю у програмі для використання шифру Тритеміуса - спадкоємця "Цезаря"! Будь-ласка, введіть текст для шифрування/дешифрування або виберіть файл с текстом нижче:</h3>
+          <textarea class="block1" name="user-text" id="text-to-work" cols="40" rows="3">hello</textarea>
+          <br><br>
+         <input type="file" id="myfile" >
+          <!-- <div class="input__wrapper">
+            <input name="file" type="file" name="file" id="myfile" class="input input__file" multiple>
+            <label for="input__file" class="input__file-button">
+               <span class="input__file-icon-wrapper"><img class="input__file-icon" src="./img/add.svg" alt="Выбрать файл" width="25"></span>
+               <span class="input__file-button-text">Выберите файл</span>
+            </label>
+         </div> -->
+          <br><br>
+          <div class="form-group">
+            <button class="b1" id="encrypt-btn">Зашифрувати</button>
+            <button class="b1" id="decrypt-btn">Дешифрувати</button><br>
+            <button class="b1" id="btn-reset">Очистити</button><br>
+          </div>
+          <!-- <h4 class="text">Крок:</h4>
+          <input type="number" name="user_step" id="encrypt-step" size="1" min="1" value="1"> -->
+          <h4 class="text">Ключ:</h4>
+          <p><textarea rows="10" cols="15" id="key" name="text">hello</textarea></p>
+          <!-- <input type="number" name="user_a" id="encrypt-a" size="2" min="1" value="2">
+          <h4 class="text">B:</h4>
+          <input type="number" name="user_b" id="encrypt-b" size="2" min="1" value="2">
+          <h4 class="text">C:</h4>
+          <input type="number" name="user_c" id="encrypt-c" size="1" min="0" value="1"> -->
+        </div>
+      </div>
+      <div class="col-md-6">
+          <h3 class="text">Результат:</h3>
+          <textarea class="block1" readonly id="output" cols="40" rows="3"></textarea>
+      </div>
+      
+    </div>
+<button class="b1" onclick="download('decrypt.txt', 'text/plain')">Зберегти</button>
+<script>
+  function download(filename, type) {
+    var s = document.getElementById('output').value;
+    var file = new Blob([s], {type: type});
+    if (window.navigator.msSaveOrOpenBlob) // IE10+
+        window.navigator.msSaveOrOpenBlob(file, filename);
+    else { // Others
+        var a = document.createElement("a"),
+                url = URL.createObjectURL(file);
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function() {
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);  
+        }, 0); 
+    }
+}
+</script>
+<br>
+<!-- <button class="b1" id="power">Груба сила</button> -->
+</div>  
+</body>
+</html>
